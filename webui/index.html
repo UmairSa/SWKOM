@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paperless Dashboard</title>
+    <script>
+        async function fetchHelloWorld() {
+            try {
+                const response = await fetch('http://localhost:8081/');
+                const text = await response.text();
+                document.getElementById('message').innerText = text;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+        window.onload = fetchHelloWorld;
+    </script>
+</head>
+<body>
+<h1>Welcome to the Paperless Dashboard</h1>
+<p id="message">Loading message from REST server...</p>
+</body>
+</html>

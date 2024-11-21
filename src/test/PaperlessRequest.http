@@ -1,0 +1,12 @@
+### GET request to example server
+GET localhost:8081/
+###
+POST localhost:8081/documents/upload
+###
+GET localhost:8081/documents/HelloWorld
+###
+PUT localhost:8081/documents/HelloPutWorld
+###
+GET localhost:8081/documents/search?query=testquery
+###
+DELETE localhost:8081/documents/322

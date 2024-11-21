@@ -1,8 +1,10 @@
-package org.App;
+package org.App.Controller;
 
+import org.App.Service.PaperlessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 public class PaperlessController {

@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1326161-43dc-4e90-a72e-4daa93fec439" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/App/PaperlessRequest.http" afterDir="false" />
+    <list default="true" id="e1326161-43dc-4e90-a72e-4daa93fec439" name="Changes" comment="Docker configured">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/PaperlessRequest.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/App/PaperlessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/App/PaperlessController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/App/PaperlessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/App/PaperlessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/App/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/App/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/App/PaperlessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/App/Controller/PaperlessController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/App/PaperlessRequest.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/App/PaperlessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/App/Service/PaperlessService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +28,7 @@
       <list>
         <option value="Class" />
         <option value="HTTP Request" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -31,25 +40,35 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "UmairSa"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;UmairSa&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/UmairSa/SWKOM.git",
-    "accountId": "104cd9de-9241-46b3-bfaf-04ca5a4d7b79"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/UmairSa/SWKOM.git&quot;,
+    &quot;accountId&quot;: &quot;104cd9de-9241-46b3-bfaf-04ca5a4d7b79&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;UmairSa&quot;,
+    &quot;repository&quot;: &quot;SWKOM&quot;
   }
-}]]></component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2o9wHRscquzOISXQkH1MCOYdeYR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -60,11 +79,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "HTTP Request.All in PaperlessRequest.executor": "Run",
+    "HTTP Request.PaperlessRequest | #2.executor": "Run",
     "HTTP Request.PaperlessRequest | #3.executor": "Run",
     "HTTP Request.PaperlessRequest | #4.executor": "Run",
     "HTTP Request.PaperlessRequest | #5.executor": "Run",
     "HTTP Request.PaperlessRequest | #6.executor": "Run",
     "HTTP Request.PaperlessRequest | GET request to example server.executor": "Run",
+    "Maven.SWKOM-Project [clean].executor": "Run",
+    "Maven.SWKOM-Project [package].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -72,28 +95,36 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.Main.executor": "Run",
-    "git-widget-placeholder": "endpoints",
+    "git-widget-placeholder": "webui",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/umair/Desktop",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/umair/IdeaProjects/SWKOM-Project/src/main/java/org/App/Main.java",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="HTTP Request.PaperlessRequest | #6">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\umair\IdeaProjects\SWKOM-Project\src\test" />
+      <recent name="C:\Users\umair\IdeaProjects\SWKOM-Project" />
+    </key>
+  </component>
+  <component name="RunManager" selected="HTTP Request.PaperlessRequest | #3">
+    <configuration name="All in PaperlessRequest" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/main/java/org/App/PaperlessRequest.http">
+      <method v="2" />
+    </configuration>
     <configuration name="PaperlessRequest | GET request to example server" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/java/org/App/PaperlessRequest.http" requestIdentifier="GET request to example server" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="PaperlessRequest | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/java/org/App/PaperlessRequest.http" index="3" requestIdentifier="#3" runType="Run single request">
+    <configuration name="PaperlessRequest | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/java/org/App/PaperlessRequest.http" index="2" requestIdentifier="#2" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="PaperlessRequest | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/java/org/App/PaperlessRequest.http" index="4" requestIdentifier="#4" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="PaperlessRequest | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/java/org/App/PaperlessRequest.http" index="5" requestIdentifier="#5" runType="Run single request">
+    <configuration name="PaperlessRequest | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/test/PaperlessRequest.http" index="3" requestIdentifier="#3" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="PaperlessRequest | #6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/java/org/App/PaperlessRequest.http" index="6" requestIdentifier="#6" runType="Run single request">
@@ -101,11 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.PaperlessRequest | #6" />
-        <item itemvalue="HTTP Request.PaperlessRequest | #5" />
-        <item itemvalue="HTTP Request.PaperlessRequest | #4" />
         <item itemvalue="HTTP Request.PaperlessRequest | #3" />
+        <item itemvalue="HTTP Request.PaperlessRequest | #2" />
+        <item itemvalue="HTTP Request.All in PaperlessRequest" />
         <item itemvalue="HTTP Request.PaperlessRequest | GET request to example server" />
+        <item itemvalue="HTTP Request.PaperlessRequest | #6" />
       </list>
     </recent_temporary>
   </component>
@@ -125,7 +156,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730295012612</updated>
-      <workItem from="1730295013550" duration="3071000" />
+      <workItem from="1730295013550" duration="5898000" />
+      <workItem from="1730300937813" duration="21000" />
+      <workItem from="1730494285269" duration="256000" />
+      <workItem from="1730494559016" duration="161000" />
+      <workItem from="1732198916635" duration="4185000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -135,7 +170,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730295259203</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Endpoints defined">
+      <option name="closed" value="true" />
+      <created>1730298113088</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730298113088</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Docker configured">
+      <option name="closed" value="true" />
+      <created>1730300339705</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730300339705</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,19 +197,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="endpoints" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -166,6 +205,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="Endpoints defined" />
+    <MESSAGE value="Docker configured" />
+    <option name="LAST_COMMIT_MESSAGE" value="Docker configured" />
   </component>
 </project>
