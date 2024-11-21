@@ -6,3 +6,8 @@ services:
       - "8081:8081"
     environment:
       - SERVER_PORT=8081
+  webui:
+    build:
+      context: ./webui
+    ports:
+      - "80:80"
