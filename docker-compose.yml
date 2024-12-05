@@ -10,4 +10,4 @@ services:
     build:
       context: ./webui
     ports:
-      - "80:80"
+      - "8080:8080"
