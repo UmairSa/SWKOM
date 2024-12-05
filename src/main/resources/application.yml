@@ -6,3 +6,16 @@ springdoc:
     path: /docs/api
   swagger-ui:
     path: /docs/swaggerui
+
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres_db:5432/paperless_db
+    username: admin
+    password: admin
+  driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
