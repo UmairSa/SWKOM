@@ -21,12 +21,13 @@ public class PaperlessService {
 
     private final DocumentRepository documentRepository;
     private final DocumentMapper documentMapper;
+    private final EchoService echoService;
 
     @Autowired
-    public PaperlessService(DocumentRepository documentRepository, DocumentMapper documentMapper){
+    public PaperlessService(DocumentRepository documentRepository, DocumentMapper documentMapper, EchoService echoService) {
         this.documentRepository = documentRepository;
         this.documentMapper = documentMapper;
-
+        this.echoService = echoService;
     }
 
     // Fetch all documents as DTOs
@@ -52,6 +53,7 @@ public class PaperlessService {
             DocumentEntity documentEntity = documentMapper.toEntity(documentDto);
 
             // Save to database
+            echoService.processMessage(documentEntity.getName(), 0);
             documentRepository.save(documentEntity);
             logger.info("Document uploaded successfully: {}", documentEntity.getId());
         } catch (Exception e) {
@@ -84,6 +86,7 @@ public class PaperlessService {
             DocumentEntity documentEntity = documentMapper.toEntity(documentDTO);
             if (documentRepository.existsById(documentEntity.getId())) {
                 documentRepository.save(documentEntity);
+                echoService.processMessage(documentEntity.getName(), 0);
                 logger.info("Document updated successfully: {}", documentDTO.getId());
                 return true;
             } else {

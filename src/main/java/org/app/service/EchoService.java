@@ -1,6 +1,8 @@
 package org.app.service;
 
 import lombok.extern.log4j.Log4j2;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +11,8 @@ import org.springframework.stereotype.Component;
 import org.app.RabbitMQConfig;
 
 @Component
-@Log4j2
 public class EchoService {
+    private static final Logger log = LoggerFactory.getLogger(EchoService.class);
     private final RabbitTemplate rabbit;
 
     @Autowired

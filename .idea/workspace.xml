@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1326161-43dc-4e90-a72e-4daa93fec439" name="Changes" comment="Docker configured">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/RabbitMQConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/service/EchoService.java" afterDir="false" />
+    <list default="true" id="e1326161-43dc-4e90-a72e-4daa93fec439" name="Changes" comment="RabbitMQ first impl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/RabbitMQConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/RabbitMQConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/service/EchoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/service/EchoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/service/PaperlessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/service/PaperlessService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,6 +81,7 @@
     "Maven.SWKOM-Project [clean].executor": "Run",
     "Maven.SWKOM-Project [install].executor": "Run",
     "Maven.SWKOM-Project [package].executor": "Run",
+    "Maven.SWKOM-Project [verify].executor": "Run",
     "Maven.swkom-project [clean].executor": "Run",
     "Maven.swkom-project [install].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
@@ -102,6 +101,9 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/umair/IdeaProjects/SWKOM-Project/src/main/java/org/App/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
@@ -167,6 +169,7 @@
       <workItem from="1730494285269" duration="256000" />
       <workItem from="1730494559016" duration="161000" />
       <workItem from="1732198916635" duration="4185000" />
+      <workItem from="1733491462967" duration="2864000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -192,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730300339705</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="RabbitMQ first impl">
+      <option name="closed" value="true" />
+      <created>1733486176019</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733486176019</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +224,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="Endpoints defined" />
     <MESSAGE value="Docker configured" />
-    <option name="LAST_COMMIT_MESSAGE" value="Docker configured" />
+    <MESSAGE value="RabbitMQ first impl" />
+    <option name="LAST_COMMIT_MESSAGE" value="RabbitMQ first impl" />
   </component>
 </project>
