@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1326161-43dc-4e90-a72e-4daa93fec439" name="Changes" comment="Docker configured">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/PaperlessRequest.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/RabbitMQConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/service/EchoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/App/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/App/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/App/PaperlessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/App/Controller/PaperlessController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/App/PaperlessRequest.http" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/App/PaperlessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/App/Service/PaperlessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/service/PaperlessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/service/PaperlessService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTTP Request" />
         <option value="Dockerfile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -87,7 +81,10 @@
     "HTTP Request.PaperlessRequest | #6.executor": "Run",
     "HTTP Request.PaperlessRequest | GET request to example server.executor": "Run",
     "Maven.SWKOM-Project [clean].executor": "Run",
+    "Maven.SWKOM-Project [install].executor": "Run",
     "Maven.SWKOM-Project [package].executor": "Run",
+    "Maven.swkom-project [clean].executor": "Run",
+    "Maven.swkom-project [install].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -95,7 +92,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.Main.executor": "Run",
-    "git-widget-placeholder": "webui",
+    "git-widget-placeholder": "RabbitMQ",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/umair/Desktop",
     "node.js.detected.package.eslint": "true",
@@ -130,13 +128,21 @@
     <configuration name="PaperlessRequest | #6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/java/org/App/PaperlessRequest.http" index="6" requestIdentifier="#6" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="SWKOM-Project" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.app.Main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.PaperlessRequest | GET request to example server" />
+        <item itemvalue="HTTP Request.PaperlessRequest | #6" />
         <item itemvalue="HTTP Request.PaperlessRequest | #3" />
         <item itemvalue="HTTP Request.PaperlessRequest | #2" />
         <item itemvalue="HTTP Request.All in PaperlessRequest" />
-        <item itemvalue="HTTP Request.PaperlessRequest | GET request to example server" />
-        <item itemvalue="HTTP Request.PaperlessRequest | #6" />
       </list>
     </recent_temporary>
   </component>
