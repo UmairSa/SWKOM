@@ -6,15 +6,24 @@ services:
       - "8081:8081"
     environment:
       - SERVER_PORT=8081
+    depends_on:
+      - postgres
+    networks:
+      - dms-network
+
   webui:
     build:
       context: ./webui
     ports:
-      - "80:8080"
+      - "80:80"
+    depends_on:
+      - paperlessrest
+    networks:
+      - dms-network
+
   postgres:
     image: postgres:15
     container_name: postgres_db
-    restart: always
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
@@ -23,5 +32,12 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - dms-network
+
 volumes:
   postgres_data:
+
+networks:
+  dms-network:
+    driver: bridge

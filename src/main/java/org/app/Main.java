@@ -1,4 +1,4 @@
-package org.App;
+package org.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,10 +17,10 @@ public class Main {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                        .allowedOrigins("*")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*");
+                registry.addMapping("/**") // Erlaube alle Endpunkte
+                        .allowedOrigins("http://localhost") // Erlaube Frontend-Herkunft
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Erlaube diese Methoden
+                        .allowedHeaders("*"); // Erlaube alle Header
             }
         };
     }

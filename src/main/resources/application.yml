@@ -12,7 +12,14 @@ spring:
     url: jdbc:postgresql://postgres_db:5432/paperless_db
     username: admin
     password: admin
-  driver-class-name: org.postgresql.Driver
+    driver-class-name: org.postgresql.Driver
+    jpa:
+      hibernate:
+        ddl-auto: update # oder "validate" für bestehende Tabellen
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+    sql:
+      init:
+        mode: always
 
   jpa:
     hibernate:
