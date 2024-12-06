@@ -1,3 +1,7 @@
 FROM nginx:latest
+
+# Copy the nginx configuration file to the container
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY index.html /usr/share/nginx/html/index.html
+
+# Copy the frontend files to the html directory
+COPY . /usr/share/nginx/html
