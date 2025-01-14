@@ -35,6 +35,18 @@ services:
     networks:
       - dms-network
 
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+    ports:
+      - "15672:15672"  # For RabbitMQ management UI
+      - "5672:5672"    # For client connections to RabbitMQ
+    networks:
+      - dms-network
+
 volumes:
   postgres_data:
 
