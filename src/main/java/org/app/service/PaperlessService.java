@@ -18,7 +18,6 @@ public class PaperlessService {
 
     private static final Logger logger = LogManager.getLogger(PaperlessService.class);
 
-
     private final DocumentRepository documentRepository;
     private final DocumentMapper documentMapper;
     private final EchoService echoService;
@@ -32,15 +31,15 @@ public class PaperlessService {
 
     // Fetch all documents as DTOs
     public List<DocumentDto> getDocumentList() {
-        logger.info("Fetching all documents.");
+        logger.info("Collecting all documents.");
         try {
             List<DocumentEntity> entities = documentRepository.findAll();
-            logger.info("Successfully fetched {} documents.", entities.size());
+            logger.info("Collected documents: {}", entities.size());
             return entities.stream()
                     .map(documentMapper::toDTO) // Map Entity to DTO
                     .collect(Collectors.toList());
         } catch (Exception e) {
-            logger.error("Error occurred while fetching documents.", e);
+            logger.error("Error collecting documents", e);
             throw e;
         }
     }
@@ -55,27 +54,27 @@ public class PaperlessService {
             // Save to database
             echoService.processMessage(documentEntity.getName(), 0);
             documentRepository.save(documentEntity);
-            logger.info("Document uploaded successfully: {}", documentEntity.getId());
+            logger.info("Document uploaded: {}", documentEntity.getId());
         } catch (Exception e) {
-            logger.error("Failed to upload document: {}", documentDto.getName(), e);
+            logger.error("Upload failed: {}", documentDto.getName(), e);
             throw e;
         }
     }
 
     // Find a document by ID and return as DTO
     public Optional<DocumentDto> getDocumentById(Long id) {
-        logger.info("Fetching document by ID: {}", id);
+        logger.info("Collecting document ID: {}", id);
         try {
             Optional<DocumentEntity> entity = documentRepository.findById(id);
             if (entity.isPresent()) {
-                logger.info("Document found with ID: {}", id);
+                logger.info("Document collected with ID: {}", id);
                 return entity.map(documentMapper::toDTO); // Convert Entity to DTO if present
             } else {
-                logger.warn("No document found with ID: {}", id);
+                logger.warn("Not found ID: {}", id);
                 return Optional.empty();
             }
         } catch (Exception e) {
-            logger.error("Error occurred while fetching document with ID: {}", id, e);
+            logger.error("Error collecting document with ID: {}", id, e);
             throw e;
         }
     }
@@ -87,32 +86,32 @@ public class PaperlessService {
             if (documentRepository.existsById(documentEntity.getId())) {
                 documentRepository.save(documentEntity);
                 echoService.processMessage(documentEntity.getName(), 0);
-                logger.info("Document updated successfully: {}", documentDTO.getId());
+                logger.info("Document updated: {}", documentDTO.getId());
                 return true;
             } else {
-                logger.warn("Document with ID {} not found for update.", documentDTO.getId());
+                logger.warn("Document not found for update, ID: {}", documentDTO.getId());
                 return false;
             }
         } catch (RuntimeException e) {
-            logger.error("Failed to update document: {}", documentDTO.getId(), e);
+            logger.error("Update failed, ID: {}", documentDTO.getId(), e);
             throw e;
         }
     }
 
     // Delete a document by ID
     public boolean deleteDocumentById(Long id) {
-        logger.info("Attempting to delete document with ID: {}", id);
+        logger.info("Deleting document, ID: {}", id);
         if (documentRepository.existsById(id)) {
             try {
                 documentRepository.deleteById(id);
-                logger.info("Successfully deleted document with ID: {}", id);
+                logger.info("Document deleted, ID: {}", id);
                 return true;
             } catch (Exception e) {
-                logger.error("Error occurred while deleting document with ID: {}", id, e);
+                logger.error("Error deleting document, ID: {}", id, e);
                 throw e;
             }
         } else {
-            logger.warn("Document with ID: {} not found, delete operation skipped.", id);
+            logger.warn("Document not found, delete skipped, id: {} ", id);
             return false;
         }
     }
