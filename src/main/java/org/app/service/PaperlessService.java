@@ -3,10 +3,12 @@ package org.app.service;
 import jakarta.validation.Valid;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.app.RabbitMQConfig;
 import org.app.mapper.DocumentMapper;
 import org.app.dal.entity.DocumentEntity;
 import org.app.dal.repository.DocumentRepository;
 import org.app.dto.DocumentDto;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -20,13 +22,13 @@ public class PaperlessService {
 
     private final DocumentRepository documentRepository;
     private final DocumentMapper documentMapper;
-    private final EchoService echoService;
+    private final RabbitTemplate rabbitTemplate;
 
     @Autowired
-    public PaperlessService(DocumentRepository documentRepository, DocumentMapper documentMapper, EchoService echoService) {
+    public PaperlessService(DocumentRepository documentRepository, DocumentMapper documentMapper, RabbitTemplate rabbitTemplate) {
         this.documentRepository = documentRepository;
         this.documentMapper = documentMapper;
-        this.echoService = echoService;
+        this.rabbitTemplate = rabbitTemplate;
     }
 
     // Fetch all documents as DTOs
@@ -52,9 +54,13 @@ public class PaperlessService {
             DocumentEntity documentEntity = documentMapper.toEntity(documentDto);
 
             // Save to database
-            echoService.processMessage(documentEntity.getName(), 0);
             documentRepository.save(documentEntity);
-            logger.info("Document uploaded: {}", documentEntity.getId());
+            logger.info("Document uploaded: {}", documentEntity.getName());
+
+            String ocrMessage = "DOCID:" + documentEntity.getId();
+            rabbitTemplate.convertAndSend(RabbitMQConfig.OCR_IN_QUEUE_NAME, ocrMessage);
+            logger.info("Sent to Ocr_In: {}", ocrMessage);
+
         } catch (Exception e) {
             logger.error("Upload failed: {}", documentDto.getName(), e);
             throw e;
@@ -85,7 +91,6 @@ public class PaperlessService {
             DocumentEntity documentEntity = documentMapper.toEntity(documentDTO);
             if (documentRepository.existsById(documentEntity.getId())) {
                 documentRepository.save(documentEntity);
-                echoService.processMessage(documentEntity.getName(), 0);
                 logger.info("Document updated: {}", documentDTO.getId());
                 return true;
             } else {

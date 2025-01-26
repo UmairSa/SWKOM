@@ -14,8 +14,10 @@ public class RabbitMQConfig {
 
     public static final String ECHO_IN_QUEUE_NAME = "Echo_In";
     public static final String ECHO_OUT_QUEUE_NAME = "Echo_Out";
-
     public static final String ECHO_MESSAGE_COUNT_PROPERTY_NAME = "MessageCount";
+
+    public static final String OCR_IN_QUEUE_NAME = "Ocr_In";
+    public static final String OCR_OUT_QUEUE_NAME = "Ocr_Out";
 
     @Bean
     public Queue echoInQueue() {
@@ -24,6 +26,16 @@ public class RabbitMQConfig {
 
     @Bean
     public Queue echoOutQueue() { return new Queue(ECHO_OUT_QUEUE_NAME, false); }
+
+    @Bean
+    public Queue ocrInQueue() {
+        return new Queue(OCR_IN_QUEUE_NAME, false);
+    }
+
+    @Bean
+    public Queue ocrOutQueue() {
+        return new Queue(OCR_OUT_QUEUE_NAME, false);
+    }
 
 
     @Bean

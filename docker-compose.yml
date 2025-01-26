@@ -11,6 +11,21 @@ services:
     networks:
       - dms-network
 
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=admin1234
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"   # S3-kompatible API
+      - "9001:9001"   # MinIO Web-GUI
+    volumes:
+      - minio_data:/data
+    networks:
+      - dms-network
+
   webui:
     build:
       context: ./webui
@@ -35,6 +50,17 @@ services:
     networks:
       - dms-network
 
+  ocrworker:
+    build:
+      context: ./OCR-Worker
+      dockerfile: Dockerfile
+    container_name: paperless_ocr
+    depends_on:
+      - rabbitmq
+      - paperlessrest
+    networks:
+      - dms-network
+
   rabbitmq:
     image: rabbitmq:3-management
     container_name: rabbitmq
@@ -49,6 +75,9 @@ services:
 
 volumes:
   postgres_data:
+
+  minio_data:
+    driver: local
 
 networks:
   dms-network:

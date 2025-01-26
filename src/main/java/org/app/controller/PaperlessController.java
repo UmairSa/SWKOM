@@ -4,14 +4,20 @@ import jakarta.validation.Valid;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.app.dto.DocumentDto;
+import org.app.service.MinioFileService;
 import org.app.service.PaperlessService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @CrossOrigin(origins = "http://localhost")
 @RestController
@@ -21,6 +27,9 @@ public class PaperlessController {
     private static final Logger logger = (Logger) LogManager.getLogger(PaperlessController.class);
 
     private PaperlessService paperlessService;
+    @Autowired
+    private MinioFileService minioFileService;
+
 
     @Autowired
     public PaperlessController(PaperlessService paperlessService) {
@@ -38,24 +47,62 @@ public class PaperlessController {
 
     // Upload a new document
     @PostMapping("/upload")
-    public ResponseEntity<Void> uploadDocument(@RequestParam("name") String name) {
+    public ResponseEntity<Void> uploadDocument(
+            @RequestParam("name") String name,
+            @RequestParam("file") MultipartFile file
+    ) {
         logger.info("Uploading: {}", name);
 
         DocumentDto docDto = new DocumentDto();
         docDto.setName(name);
-        docDto.setContent(null);
         docDto.setDateUploaded(LocalDateTime.now());
 
-
         try {
+            // Z.B. generiere ein Object-Name; z.B. UUID + Original-Filename
+            String objectName = UUID.randomUUID() + "_" + name + ".pdf";
+
+            // 1) Hochladen zu MinIO
+            minioFileService.upload(file.getBytes(), objectName);
+
+            // 2) In DocumentDto speichern
+            docDto.setMinioObjectName(objectName);
+
+            // 3) In PaperlessService schreiben (DB-Speicherung)
             paperlessService.uploadDocument(docDto);
             logger.info("upload done: '{}'", name);
+
             return new ResponseEntity<>(HttpStatus.OK);
-        } catch (RuntimeException e) {
+        } catch (Exception e) {
             logger.error("Error uploading: '{}'", name, e);
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);  // Bad Request on failure
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
+    @GetMapping("/documents/{id}/file")
+    public ResponseEntity<byte[]> downloadPdf(@PathVariable Long id) {
+        Optional<DocumentDto> docOpt = paperlessService.getDocumentById(id);
+        if (docOpt.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        DocumentDto doc = docOpt.get();
+        if (doc.getMinioObjectName() == null) {
+            // Keine Datei hinterlegt
+            return ResponseEntity.noContent().build();
+        }
+
+        byte[] pdfData = minioFileService.download(doc.getMinioObjectName());
+        if (pdfData == null || pdfData.length == 0) {
+            return ResponseEntity.noContent().build();
+        }
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + doc.getName() + "\"")
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(pdfData);
+    }
+
+
 
     // Get a document by ID
     @GetMapping("/documents/{id}")
