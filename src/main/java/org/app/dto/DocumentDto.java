@@ -9,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DocumentDto {
+
     private Long id;
 
     @NotBlank(message = "Name cannot be empty!")
@@ -16,5 +17,8 @@ public class DocumentDto {
     private String name;
 
     private String content;
+
+    private String minioObjectName;
+
     private LocalDateTime dateUploaded;
 }

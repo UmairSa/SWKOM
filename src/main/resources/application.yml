@@ -7,6 +7,12 @@ springdoc:
   swagger-ui:
     path: /docs/swaggerui
 
+minio:
+  url: http://minio:9000
+  accessKey: admin
+  secretKey: admin1234
+  bucketName: paperless-bucket
+
 spring:
   datasource:
     url: jdbc:postgresql://postgres_db:5432/paperless_db
@@ -26,3 +32,4 @@ spring:
       ddl-auto: update
     properties:
       hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+

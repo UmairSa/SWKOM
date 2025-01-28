@@ -13,9 +13,14 @@ public class DocumentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
+    private String minioObjectName;
+
+    @Column(name = "content") // bei PostgreSQL
+    @Lob
     private String content;
 
-    @Column(name = "date_uploaded", nullable = false, updatable = false)
     private LocalDateTime dateUploaded;
 }

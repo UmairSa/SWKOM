@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1326161-43dc-4e90-a72e-4daa93fec439" name="Changes" comment="RabbitMQ first impl">
+    <list default="true" id="e1326161-43dc-4e90-a72e-4daa93fec439" name="Changes" comment="minio integrated. previous errors fixed">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/service/OcrResultListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/RabbitMQConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/RabbitMQConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/service/EchoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/service/EchoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/service/PaperlessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/service/PaperlessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR-Worker" beforeDir="false" afterPath="$PROJECT_DIR$/OCR-Worker" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR-Worker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/OCR-Worker/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR-Worker/src/main/java/org/App/service/OcrListenerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/OCR-Worker/src/main/java/org/App/service/OcrListenerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/dal/entity/DocumentEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/dal/entity/DocumentEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/documents.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/documents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/upload.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,45 +74,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "HTTP Request.All in PaperlessRequest.executor": "Run",
-    "HTTP Request.PaperlessRequest | #2.executor": "Run",
-    "HTTP Request.PaperlessRequest | #3.executor": "Run",
-    "HTTP Request.PaperlessRequest | #4.executor": "Run",
-    "HTTP Request.PaperlessRequest | #5.executor": "Run",
-    "HTTP Request.PaperlessRequest | #6.executor": "Run",
-    "HTTP Request.PaperlessRequest | GET request to example server.executor": "Run",
-    "Maven.SWKOM-Project [clean].executor": "Run",
-    "Maven.SWKOM-Project [install].executor": "Run",
-    "Maven.SWKOM-Project [package].executor": "Run",
-    "Maven.SWKOM-Project [verify].executor": "Run",
-    "Maven.swkom-project [clean].executor": "Run",
-    "Maven.swkom-project [install].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.Main.executor": "Run",
-    "git-widget-placeholder": "RabbitMQ",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/umair/Desktop",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/umair/IdeaProjects/SWKOM-Project/src/main/java/org/App/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;HTTP Request.All in PaperlessRequest.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.PaperlessRequest | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.PaperlessRequest | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.PaperlessRequest | #4.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.PaperlessRequest | #5.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.PaperlessRequest | #6.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.PaperlessRequest | GET request to example server.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SWKOM-Project [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SWKOM-Project [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SWKOM-Project [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SWKOM-Project [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SWKOM-Project [verify].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.swkom-project [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.swkom-project [install].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Main.executor&quot;: &quot;Run&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sprint5&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/umair/Desktop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/umair/IdeaProjects/SWKOM-Project/src/main/java/org/App/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\umair\IdeaProjects\SWKOM-Project\src\test" />
@@ -170,6 +177,24 @@
       <workItem from="1730494559016" duration="161000" />
       <workItem from="1732198916635" duration="4185000" />
       <workItem from="1733491462967" duration="2864000" />
+      <workItem from="1737485579671" duration="1462000" />
+      <workItem from="1737487106928" duration="782000" />
+      <workItem from="1737488314114" duration="2047000" />
+      <workItem from="1737546956832" duration="1244000" />
+      <workItem from="1737548238062" duration="417000" />
+      <workItem from="1737548678539" duration="3998000" />
+      <workItem from="1737908287811" duration="3429000" />
+      <workItem from="1737912080956" duration="473000" />
+      <workItem from="1737912579913" duration="2046000" />
+      <workItem from="1737916201906" duration="1063000" />
+      <workItem from="1737917289195" duration="2058000" />
+      <workItem from="1738068936571" duration="983000" />
+      <workItem from="1738069951682" duration="715000" />
+      <workItem from="1738070708315" duration="1396000" />
+      <workItem from="1738072143019" duration="61000" />
+      <workItem from="1738072222699" duration="277000" />
+      <workItem from="1738072524171" duration="92000" />
+      <workItem from="1738072635179" duration="1101000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -203,7 +228,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733486176019</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="minio integrated. previous errors fixed">
+      <option name="closed" value="true" />
+      <created>1737919284275</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1737919284275</updated>
+    </task>
+    <task id="LOCAL-00006" summary="minio integrated. previous errors fixed">
+      <option name="closed" value="true" />
+      <created>1737919303076</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1737919303076</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +266,7 @@
     <MESSAGE value="Endpoints defined" />
     <MESSAGE value="Docker configured" />
     <MESSAGE value="RabbitMQ first impl" />
-    <option name="LAST_COMMIT_MESSAGE" value="RabbitMQ first impl" />
+    <MESSAGE value="minio integrated. previous errors fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="minio integrated. previous errors fixed" />
   </component>
 </project>

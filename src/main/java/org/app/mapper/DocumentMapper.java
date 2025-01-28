@@ -7,6 +7,6 @@ import org.app.dto.DocumentDto;
 @Mapper(componentModel = "spring")
 public interface DocumentMapper {
 
-    DocumentDto toDTO(DocumentEntity documentEntity);
-    DocumentEntity toEntity(DocumentDto documentDTO);
+    DocumentDto toDTO(DocumentEntity entity);
+    DocumentEntity toEntity(DocumentDto dto);
 }
