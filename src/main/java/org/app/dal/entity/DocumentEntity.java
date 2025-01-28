@@ -19,6 +19,7 @@ public class DocumentEntity {
     private String minioObjectName;
 
     @Column(name = "content") // bei PostgreSQL
+    @Lob
     private String content;
 
     private LocalDateTime dateUploaded;

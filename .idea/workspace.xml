@@ -4,32 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1326161-43dc-4e90-a72e-4daa93fec439" name="Changes" comment="ocr worker tried">
-      <change afterPath="$PROJECT_DIR$/OCR-Worker/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR-Worker/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR-Worker/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR-Worker/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR-Worker/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR-Worker/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR-Worker/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR-Worker/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR-Worker/src/main/java/org/App/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR-Worker/src/main/java/org/App/config/RabbitMQConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR-Worker/src/main/java/org/App/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR-Worker/src/main/java/org/App/service/OcrListenerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR-Worker/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/service/MinioFileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="e1326161-43dc-4e90-a72e-4daa93fec439" name="Changes" comment="minio integrated. previous errors fixed">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/service/OcrResultListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/RabbitMQConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/RabbitMQConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/controller/PaperlessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/controller/PaperlessController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR-Worker" beforeDir="false" afterPath="$PROJECT_DIR$/OCR-Worker" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR-Worker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/OCR-Worker/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR-Worker/src/main/java/org/App/service/OcrListenerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/OCR-Worker/src/main/java/org/App/service/OcrListenerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/dal/entity/DocumentEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/dal/entity/DocumentEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/dto/DocumentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/dto/DocumentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/mapper/DocumentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/mapper/DocumentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/service/PaperlessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/service/PaperlessService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/documents.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/documents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/upload.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +97,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Spring Boot.Main.executor&quot;: &quot;Run&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
     &quot;git-widget-placeholder&quot;: &quot;sprint5&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -202,7 +187,14 @@
       <workItem from="1737912080956" duration="473000" />
       <workItem from="1737912579913" duration="2046000" />
       <workItem from="1737916201906" duration="1063000" />
-      <workItem from="1737917289195" duration="1575000" />
+      <workItem from="1737917289195" duration="2058000" />
+      <workItem from="1738068936571" duration="983000" />
+      <workItem from="1738069951682" duration="715000" />
+      <workItem from="1738070708315" duration="1396000" />
+      <workItem from="1738072143019" duration="61000" />
+      <workItem from="1738072222699" duration="277000" />
+      <workItem from="1738072524171" duration="92000" />
+      <workItem from="1738072635179" duration="1101000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -236,7 +228,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733486176019</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="minio integrated. previous errors fixed">
+      <option name="closed" value="true" />
+      <created>1737919284275</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1737919284275</updated>
+    </task>
+    <task id="LOCAL-00006" summary="minio integrated. previous errors fixed">
+      <option name="closed" value="true" />
+      <created>1737919303076</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1737919303076</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +266,7 @@
     <MESSAGE value="Endpoints defined" />
     <MESSAGE value="Docker configured" />
     <MESSAGE value="RabbitMQ first impl" />
-    <option name="LAST_COMMIT_MESSAGE" value="RabbitMQ first impl" />
+    <MESSAGE value="minio integrated. previous errors fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="minio integrated. previous errors fixed" />
   </component>
 </project>
