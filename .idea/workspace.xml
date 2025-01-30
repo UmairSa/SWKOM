@@ -4,16 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1326161-43dc-4e90-a72e-4daa93fec439" name="Changes" comment="minio integrated. previous errors fixed">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/service/OcrResultListener.java" afterDir="false" />
+    <list default="true" id="e1326161-43dc-4e90-a72e-4daa93fec439" name="Changes" comment="integration tests implemented, not working">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/app/controller/PaperlessControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/app/dto/DocumentDtoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/app/service/PaperlessServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR-Worker" beforeDir="false" afterPath="$PROJECT_DIR$/OCR-Worker" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR-Worker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/OCR-Worker/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR-Worker/src/main/java/org/App/service/OcrListenerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/OCR-Worker/src/main/java/org/App/service/OcrListenerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/dal/entity/DocumentEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/dal/entity/DocumentEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/documents.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/documents.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/controller/PaperlessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/controller/PaperlessController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/service/MinioFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/service/MinioFileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/service/OcrResultListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/service/OcrResultListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/service/PaperlessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/service/PaperlessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +38,9 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
+    <option name="RECENT_COMMON_BRANCH" value="master" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -74,61 +79,62 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;HTTP Request.All in PaperlessRequest.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.PaperlessRequest | #2.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.PaperlessRequest | #3.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.PaperlessRequest | #4.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.PaperlessRequest | #5.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.PaperlessRequest | #6.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.PaperlessRequest | GET request to example server.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.SWKOM-Project [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.SWKOM-Project [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.SWKOM-Project [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.SWKOM-Project [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.SWKOM-Project [verify].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.swkom-project [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.swkom-project [install].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.Main.executor&quot;: &quot;Run&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sprint5&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/umair/Desktop&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/umair/IdeaProjects/SWKOM-Project/src/main/java/org/App/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "HTTP Request.All in PaperlessRequest.executor": "Run",
+    "HTTP Request.PaperlessRequest | #2.executor": "Run",
+    "HTTP Request.PaperlessRequest | #3.executor": "Run",
+    "HTTP Request.PaperlessRequest | #4.executor": "Run",
+    "HTTP Request.PaperlessRequest | #5.executor": "Run",
+    "HTTP Request.PaperlessRequest | #6.executor": "Run",
+    "HTTP Request.PaperlessRequest | GET request to example server.executor": "Run",
+    "JUnit.PaperlessControllerIntegrationTest.executor": "Run",
+    "JUnit.PaperlessControllerTest.executor": "Run",
+    "JUnit.PaperlessServiceTest.testGetDocumentList.executor": "Run",
+    "Maven.SWKOM-Project [clean,install].executor": "Run",
+    "Maven.SWKOM-Project [clean].executor": "Run",
+    "Maven.SWKOM-Project [install].executor": "Run",
+    "Maven.SWKOM-Project [package].executor": "Run",
+    "Maven.SWKOM-Project [test].executor": "Run",
+    "Maven.SWKOM-Project [verify].executor": "Run",
+    "Maven.swkom-project [clean].executor": "Run",
+    "Maven.swkom-project [install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.Main.executor": "Run",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
+    "git-widget-placeholder": "unit-tests",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/umair/Desktop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/umair/IdeaProjects/SWKOM-Project/src/main/java/org/App/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\umair\IdeaProjects\SWKOM-Project\src\test" />
       <recent name="C:\Users\umair\IdeaProjects\SWKOM-Project" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.app.controller" />
+    </key>
   </component>
-  <component name="RunManager" selected="HTTP Request.PaperlessRequest | #3">
-    <configuration name="All in PaperlessRequest" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/main/java/org/App/PaperlessRequest.http">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JUnit.PaperlessControllerTest">
     <configuration name="PaperlessRequest | GET request to example server" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/java/org/App/PaperlessRequest.http" requestIdentifier="GET request to example server" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="PaperlessRequest | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/java/org/App/PaperlessRequest.http" index="2" requestIdentifier="#2" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="PaperlessRequest | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/test/PaperlessRequest.http" index="3" requestIdentifier="#3" runType="Run single request">
@@ -136,6 +142,37 @@
     </configuration>
     <configuration name="PaperlessRequest | #6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/java/org/App/PaperlessRequest.http" index="6" requestIdentifier="#6" runType="Run single request">
       <method v="2" />
+    </configuration>
+    <configuration name="PaperlessControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SWKOM-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.app.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.app.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.app.controller.PaperlessControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PaperlessServiceTest.testGetDocumentList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SWKOM-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.app.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.app.service" />
+      <option name="MAIN_CLASS_NAME" value="org.app.service.PaperlessServiceTest" />
+      <option name="METHOD_NAME" value="testGetDocumentList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -147,11 +184,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PaperlessControllerTest" />
+        <item itemvalue="JUnit.PaperlessServiceTest.testGetDocumentList" />
         <item itemvalue="HTTP Request.PaperlessRequest | GET request to example server" />
         <item itemvalue="HTTP Request.PaperlessRequest | #6" />
         <item itemvalue="HTTP Request.PaperlessRequest | #3" />
-        <item itemvalue="HTTP Request.PaperlessRequest | #2" />
-        <item itemvalue="HTTP Request.All in PaperlessRequest" />
       </list>
     </recent_temporary>
   </component>
@@ -195,6 +232,11 @@
       <workItem from="1738072222699" duration="277000" />
       <workItem from="1738072524171" duration="92000" />
       <workItem from="1738072635179" duration="1101000" />
+      <workItem from="1738149694728" duration="18000" />
+      <workItem from="1738149992430" duration="614000" />
+      <workItem from="1738150661273" duration="6400000" />
+      <workItem from="1738171227226" duration="5641000" />
+      <workItem from="1738236731494" duration="5198000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -244,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737919303076</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="integration tests implemented, not working">
+      <option name="closed" value="true" />
+      <created>1738237531870</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1738237531870</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,6 +317,7 @@
     <MESSAGE value="Docker configured" />
     <MESSAGE value="RabbitMQ first impl" />
     <MESSAGE value="minio integrated. previous errors fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="minio integrated. previous errors fixed" />
+    <MESSAGE value="integration tests implemented, not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="integration tests implemented, not working" />
   </component>
 </project>

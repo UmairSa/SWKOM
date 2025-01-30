@@ -31,7 +31,6 @@ public class PaperlessService {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    // Fetch all documents as DTOs
     public List<DocumentDto> getDocumentList() {
         logger.info("Collecting all documents.");
         try {
@@ -50,10 +49,8 @@ public class PaperlessService {
     public void uploadDocument(@Valid DocumentDto documentDto) {
         logger.info("Uploading document: {}", documentDto.getName());
         try {
-            // Map DTO to Entity
             DocumentEntity documentEntity = documentMapper.toEntity(documentDto);
 
-            // Save to database
             documentRepository.save(documentEntity);
             logger.info("Document uploaded: {}", documentEntity.getName());
 
@@ -67,7 +64,6 @@ public class PaperlessService {
         }
     }
 
-    // Find a document by ID and return as DTO
     public Optional<DocumentDto> getDocumentById(Long id) {
         logger.info("Collecting document ID: {}", id);
         try {
@@ -103,7 +99,6 @@ public class PaperlessService {
         }
     }
 
-    // Delete a document by ID
     public boolean deleteDocumentById(Long id) {
         logger.info("Deleting document, ID: {}", id);
         if (documentRepository.existsById(id)) {
