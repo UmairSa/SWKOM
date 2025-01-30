@@ -36,7 +36,6 @@ public class PaperlessController {
         this.paperlessService = paperlessService;
     }
 
-    // Get all documents
     @GetMapping("/documents")
     public ResponseEntity<List<DocumentDto>> getDocuments() {
         logger.info("Collecting documents");
@@ -58,16 +57,13 @@ public class PaperlessController {
         docDto.setDateUploaded(LocalDateTime.now());
 
         try {
-            // Z.B. generiere ein Object-Name; z.B. UUID + Original-Filename
+
             String objectName = UUID.randomUUID() + "_" + name + ".pdf";
 
-            // 1) Hochladen zu MinIO
             minioFileService.upload(file.getBytes(), objectName);
 
-            // 2) In DocumentDto speichern
             docDto.setMinioObjectName(objectName);
 
-            // 3) In PaperlessService schreiben (DB-Speicherung)
             paperlessService.uploadDocument(docDto);
             logger.info("upload done: '{}'", name);
 
@@ -78,7 +74,6 @@ public class PaperlessController {
         }
     }
 
-
     @GetMapping("/documents/{id}/file")
     public ResponseEntity<byte[]> downloadPdf(@PathVariable Long id) {
         Optional<DocumentDto> docOpt = paperlessService.getDocumentById(id);
@@ -87,7 +82,6 @@ public class PaperlessController {
         }
         DocumentDto doc = docOpt.get();
         if (doc.getMinioObjectName() == null) {
-            // Keine Datei hinterlegt
             return ResponseEntity.noContent().build();
         }
 
@@ -102,9 +96,6 @@ public class PaperlessController {
                 .body(pdfData);
     }
 
-
-
-    // Get a document by ID
     @GetMapping("/documents/{id}")
     public ResponseEntity<DocumentDto> getDocumentById(@PathVariable Long id) {
         logger.info("Collecting id: {}", id);
@@ -119,7 +110,6 @@ public class PaperlessController {
                 });
     }
 
-    // Update an existing document
     @PutMapping("/update/{id}")
     public ResponseEntity<Void> updateDocument(@PathVariable Long id, @RequestBody @Valid DocumentDto documentDto) {
         logger.info("Updating ID: {}", id);
@@ -133,7 +123,6 @@ public class PaperlessController {
         }
     }
 
-    // Delete a document by ID
     @DeleteMapping("/documents/{id}")
     public ResponseEntity<Void> deleteDocument(@PathVariable Long id) {
         logger.info("delete ID: {}", id);

@@ -46,7 +46,6 @@ public class MinioFileService {
 
     public String upload(byte[] data, String objectName) {
         try {
-            // objectName = Dateiname/ID => du kannst z.B. eine UUID generieren
             PutObjectArgs putObjectArgs = PutObjectArgs.builder()
                     .bucket(defaultBucket)
                     .object(objectName)

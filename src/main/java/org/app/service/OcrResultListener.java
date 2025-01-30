@@ -23,7 +23,7 @@ public class OcrResultListener {
 
     @RabbitListener(queues = RabbitMQConfig.OCR_OUT_QUEUE_NAME)
     public void handleOcrResult(String message) {
-        // Beispiel: "DOCID:4|TEXT:Hallo Welt"
+
         log.info("Received OCR result: {}", message);
 
         Long docId = null;
